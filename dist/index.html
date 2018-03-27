@@ -3,22 +3,35 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<link rel=manifest href=./manifest.json>
+	<meta name=theme-color content=#4DBA87>
+	
 	<title> PWA demo </title>
 	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css">
 	
-	<style> img{max-width: 100%;}</style>
+	
+	<link rel="stylesheet" href="./app.css">
+
 </head>
+
     <body>
 
-        
-		<h1>The price of bitcoin is <span></span> </h1>
-		        
-			<img src="https://placeimg.com/640/480/any">
+		
+		<section id="app">
+
+			<my-component></my-component>
+			 
+		</section>
+
 
     </body>	
 
-	<script src="./app.js" defer></script>
+
 
 	<script>
 
@@ -38,6 +51,13 @@
 	  
 	  </script>
 	
+	<script src="https://unpkg.com/vue" defer></script>
+    <script src="https://unpkg.com/vue-material@beta" defer></script>
+	 
+	<script src="./components/base.js" defer></script>
+	<script src="./components/coin.js" defer></script>
+	<script src="./app.js" defer></script>
+
 
 </html>
 

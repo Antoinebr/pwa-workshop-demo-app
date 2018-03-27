@@ -1,6 +1,7 @@
 module.exports = {
     globDirectory: './dist/',
     globPatterns: [
+      '**/**/*.png',
       '**/*.{js,css}',
       '**/index.html'
     ],
@@ -12,21 +13,17 @@ module.exports = {
             handler: 'networkFirst'
         }, 
 
+        {
+            urlPattern: new RegExp('(https://fonts.googleapis.com|https://unpkg.com)'),
+            handler: 'staleWhileRevalidate'
+        },
+
 
         {
-            urlPattern: new RegExp('https://placeimg.com'),
-            handler: 'networkFirst',
-            options: {
-                // Only cache 10 images.
-                cacheName: 'images',
-                expiration: {
-                  maxEntries: 10,
-                },
-              },
+            urlPattern: new RegExp('https://cdn.worldvectorlogo.com/'),
+            handler: 'cacheFirst'
         },
-     
-
-
+        
 
     ],
    
