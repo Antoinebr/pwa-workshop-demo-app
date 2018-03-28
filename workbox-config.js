@@ -1,11 +1,12 @@
 module.exports = {
     globDirectory: './dist/',
     globPatterns: [
-      '**/**/*.png',
+      '**/**/*.{png,svg}',
       '**/*.{js,css}',
       '**/index.html'
     ],
 
+   
     runtimeCaching: [
 
         {
@@ -18,15 +19,8 @@ module.exports = {
             handler: 'staleWhileRevalidate'
         },
 
-
-        {
-            urlPattern: new RegExp('https://cdn.worldvectorlogo.com/'),
-            handler: 'cacheFirst'
-        },
-        
-
     ],
-   
+
 
     swDest: './dist/sw.js',
     clientsClaim: true,

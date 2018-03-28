@@ -27,14 +27,6 @@ self.__precacheManifest = [
     "revision": "5f3bfc494b7d8354305c6fa20948b07c"
   },
   {
-    "url": "img/icons/icon-144x144.png",
-    "revision": "af69642d4c8190a3702de21bd551cf23"
-  },
-  {
-    "url": "img/icons/icon-152x152.png",
-    "revision": "648f1655d73f6d1cb37405384cf2ab9c"
-  },
-  {
     "url": "img/icons/icon-192x192.png",
     "revision": "aa71ca0435c6355e5fa0229e20adb107"
   },
@@ -55,24 +47,36 @@ self.__precacheManifest = [
     "revision": "db92f956c37ca691115d6c327849b4e3"
   },
   {
+    "url": "img/logos/bitcoin.svg",
+    "revision": "2a4ac9a43a95d361f50010e2f85039b5"
+  },
+  {
     "url": "app.css",
     "revision": "08b123f55fe3c2cdbe7ffb45d66ba34f"
   },
   {
     "url": "app.js",
-    "revision": "3a18222de76a296f23f56fdd4ad3e83c"
+    "revision": "13be373558160743207aca0ad6443416"
   },
   {
     "url": "components/base.js",
-    "revision": "7565b2f43ca01bed7b48ebae92378052"
+    "revision": "ccd97b47fa2b507ab1141854eedcb40b"
   },
   {
     "url": "components/coin.js",
-    "revision": "7b9a4e8aabb092d0d2a29d56fbd16041"
+    "revision": "b0e2fae5c7fc08dcf7541309e6866ad9"
+  },
+  {
+    "url": "OneSignalSDKUpdaterWorker.js",
+    "revision": "f515315e2e1824a323af6ca6859fc69a"
+  },
+  {
+    "url": "OneSignalSDKWorker.js",
+    "revision": "f515315e2e1824a323af6ca6859fc69a"
   },
   {
     "url": "index.html",
-    "revision": "01e1c32b1e4a2c17d8ea525ba3c03ada"
+    "revision": "b8f3c3e1aa9266420d4cf7dbdf1a0333"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
@@ -80,4 +84,3 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerRoute(/https:\/\/api.cryptonator.com\/api\//, workbox.strategies.networkFirst(), 'GET');
 workbox.routing.registerRoute(/(https:\/\/fonts.googleapis.com|https:\/\/unpkg.com)/, workbox.strategies.staleWhileRevalidate(), 'GET');
-workbox.routing.registerRoute(/https:\/\/cdn.worldvectorlogo.com\//, workbox.strategies.cacheFirst(), 'GET');

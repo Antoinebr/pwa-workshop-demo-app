@@ -7,7 +7,7 @@ Vue.component('coin', {
                 <md-card-header class="row">
 
                         <md-card-media class="col-xs-4 card-icon u-mts">
-                            <img src="https://cdn.worldvectorlogo.com/logos/bitcoin.svg">
+                            <img src="/img/logos/bitcoin.svg">
                             <div class="md-title u-txtCenter"> {{crypto.ticker.base}} </div>
                         </md-card-media>
 

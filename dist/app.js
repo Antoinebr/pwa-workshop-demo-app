@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 Vue.use(VueMaterial.default)
 
 new Vue({
@@ -13,48 +6,32 @@ new Vue({
 
 
 
-Vue.component('my-component', {
-  template : `
-<div>
-
-  <md-toolbar class="md-theme-default">
-    <h1 class="md-title head-title">My cryptos</h1>
-  </md-toolbar>
-
-  <coin :crypto="crypto"></coin>
-
-</div>
-`,
-
-  data(){
-    return {
-      crypto : null
-    }
-  },
-  methods : {
-
-    getPosts(){
-      
-
-      fetch('https://api.cryptonator.com/api/ticker/BTC-EUR')
-        .then( (response) => response.json() )
-        .then( (res) => {
-
-          this.crypto = res;
-          //this.btcPrice = Math.round(res.ticker.price,2)+'€';
-
-         }).catch( (err) => console.log(err) );
-
-    }
-  },
-  created: function () {
-   
-    this.getPosts();
-    
-  }
-
-});
+/**
+ *  One Signal 
+ *  Notification part
+ */
 
 
+// function subscribe() {
+//   OneSignal.push(["registerForPushNotifications"]);
+//   event.preventDefault();
+// }
+
+// var OneSignal = OneSignal || [];
+// /* This example assumes you've already initialized OneSignal */
+// OneSignal.push(function() {
+//   // If we're on an unsupported browser, do nothing
+//   if (!OneSignal.isPushNotificationsSupported()) return;
+//   OneSignal.isPushNotificationsEnabled(function(isEnabled) {
+  
+//       if (isEnabled) {
+//           // The user is subscribed to notifications
+//           // Don't show anything
+//       } else {
+//           document.getElementById("subscribe-link").addEventListener('click', subscribe);
+//           document.getElementById("subscribe-link").style.display = '';
+//       }
+//   });
+// });
 
 
