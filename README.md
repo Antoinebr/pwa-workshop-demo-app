@@ -2,7 +2,7 @@
 
 ## Install 
 
-```npm install`
+```npm install```
 
 ## Build 
 
