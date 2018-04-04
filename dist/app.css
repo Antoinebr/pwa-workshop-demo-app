@@ -23,3 +23,7 @@
         font-size: 27px;
         color: #464444;
     }
+
+    .card-main{
+        overflow:hidden;
+    }

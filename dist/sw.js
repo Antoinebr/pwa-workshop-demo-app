@@ -82,5 +82,5 @@ self.__precacheManifest = [
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute(/https:\/\/api.cryptonator.com\/api\//, workbox.strategies.networkFirst(), 'GET');
 workbox.routing.registerRoute(/(https:\/\/fonts.googleapis.com|https:\/\/unpkg.com)/, workbox.strategies.staleWhileRevalidate(), 'GET');
+workbox.routing.registerRoute(/https:\/\/api.cryptonator.com\/api\//, workbox.strategies.networkFirst(), 'GET');
