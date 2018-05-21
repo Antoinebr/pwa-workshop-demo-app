@@ -35,3 +35,91 @@ new Vue({
 // });
 
 
+
+
+function injectOfflineBanner(){
+
+  let elem = document.createElement('div');
+  
+  elem.style.cssText = `
+  position: fixed;
+  background-color: #6d6d6d;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 46px;
+  line-height: 40px;
+  text-align: center;
+  color: #FFF;
+  z-index: 9999999999;
+  `;
+
+  elem.id = "offline-banner";
+
+  elem.innerText = "Heads up  : You are offline";
+
+  document.body.appendChild(elem);
+
+}
+
+
+function removeOfflineBanner(){
+
+  const offlineBanner = document.querySelector("#offline-banner");
+
+  if( offlineBanner !== null ) offlineBanner.parentNode.removeChild(offlineBanner);
+
+}
+
+
+
+if( ! navigator.onLine ) injectOfflineBanner();
+
+if( navigator.onLine ) removeOfflineBanner();
+
+
+addEventListener("offline", () => injectOfflineBanner() );
+
+
+addEventListener("online", () => removeOfflineBanner() );
+
+
+
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyCV-Sq3qOIs8i11Tk_T6tmLhB-Umshj3Zw",
+  authDomain: "a-pwa-demo.firebaseapp.com",
+  databaseURL: "https://a-pwa-demo.firebaseio.com",
+  projectId: "a-pwa-demo",
+  storageBucket: "a-pwa-demo.appspot.com",
+  messagingSenderId: "1037558452872"
+};
+
+firebase.initializeApp(config);
+
+const messaging = firebase.messaging();
+
+
+const requestNotifications = () => {
+
+  messaging.requestPermission()
+    .then( () => {
+
+      console.log('Have permision') 
+
+      return messaging.getToken();
+
+    })
+    .then( token => console.log(token) )
+    .catch( err => console.log('Error ', err) );
+
+};
+
+messaging.onMessage( (payload) => {
+
+  console.log('OnMessage', payload);
+
+})
+
+
+

@@ -54,26 +54,28 @@
 
 		if ("serviceWorker" in navigator) {
 	  
-		  navigator.serviceWorker.register("/sw.js").then(function(registration){
-	  
+			navigator.serviceWorker.register("/sw.js").then(function(registration){
+		
 				console.log("Service Worker registered with scope:", registration.scope );
-	  
-		  }).catch(function(err) {
-	  
+		
+			}).catch(function(err) {
+		
 				console.log("Service worker registration failed:", err);
-	  
-		  });
+		
+			});
 	  
 		}
 	  
 	  </script>
 	
 	<script src="https://unpkg.com/vue" defer></script>
-    <script src="https://unpkg.com/vue-material@beta" defer></script>
-	 
+	<script src="https://unpkg.com/vue-material@beta" defer></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js" defer></script>
 	<script src="./components/base.js" defer></script>
 	<script src="./components/coin.js" defer></script>
 	<script src="./app.js" defer></script>
+
+	
 
 
 </html>

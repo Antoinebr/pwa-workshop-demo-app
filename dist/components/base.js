@@ -3,8 +3,9 @@ Vue.component('my-component', {
     template : `
   <div>
   
-    <md-toolbar class="md-theme-default">
+    <md-toolbar class="md-theme-default header">
       <h1 class="md-title head-title">PWA demo</h1>
+      <i class="material-icons notification-icon" id="notification-icon" v-if="showNotification" @click="getPush()">notification_important</i>
     </md-toolbar>
   
     <coin :crypto="crypto"></coin>
@@ -31,7 +32,30 @@ Vue.component('my-component', {
   
            }).catch( (err) => console.log(err) );
   
+      },
+
+
+      getPush(){
+        
+        requestNotifications()
+
       }
+
+
+    },
+
+    computed : {
+
+      showNotification(){
+        
+        // https://developer.mozilla.org/en-US/docs/Web/API/Notification/permission
+        
+        if( !("Notification" in window) )  return false;
+        return (Notification.permission === "default" ) ? true : false;
+
+      }
+
+
     },
     created: function () {
      
@@ -40,4 +64,5 @@ Vue.component('my-component', {
     }
   
   });
+
   

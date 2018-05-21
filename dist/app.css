@@ -4,26 +4,39 @@
 
 .card-icon .md-title{
     font-size: 19px;
-  }
-  .md-list-item .md-list-item-container {
-     min-height: 37px;
-  }
-  .head-title{
-    color: #FFF;}
+}
+.md-list-item .md-list-item-container {
+    min-height: 37px;
+}
+.head-title{
+color: #FFF;
+}
 
-    .md-theme-default.md-toolbar {
-        background-color: #2196f3;
-        color: rgba(255, 255, 255, .87);
-    }
+.md-theme-default.md-toolbar {
+    background-color: #2196f3;
+    color: rgba(255, 255, 255, .87);
+}
 
-    .price{
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        font-size: 27px;
-        color: #464444;
-    }
+.price{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    font-size: 27px;
+    color: #464444;
+}
 
-    .card-main{
-        overflow:hidden;
-    }
+.card-main{
+    overflow:hidden;
+}
+
+.header{
+    position: relative;
+}
+
+.notification-icon{
+    position: absolute;
+    right: 4%;
+    font-size: 39px;
+    color: #FFFF;
+    cursor: pointer;
+}
