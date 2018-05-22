@@ -51,6 +51,10 @@ Vue.component('my-component', {
         // https://developer.mozilla.org/en-US/docs/Web/API/Notification/permission
         
         if( !("Notification" in window) )  return false;
+
+        // If is safari 
+        if ( /^((?!chrome|android).)*safari/i.test(navigator.userAgent) ) return false; 
+
         return (Notification.permission === "default" ) ? true : false;
 
       }
