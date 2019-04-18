@@ -28,7 +28,7 @@ color: #FFF;
 .card-main{
     overflow:hidden;
 }
-
+ 
 .header{
     position: relative;
 }
@@ -37,6 +37,14 @@ color: #FFF;
     position: absolute;
     right: 4%;
     font-size: 39px;
+    color: #FFFF;
+    cursor: pointer;
+}
+
+.add_to_home_screen-icon{
+    position: absolute;
+    right: 16%;
+    font-size: 36px;
     color: #FFFF;
     cursor: pointer;
 }

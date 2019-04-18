@@ -23,7 +23,7 @@ new Vue({
 //   // If we're on an unsupported browser, do nothing
 //   if (!OneSignal.isPushNotificationsSupported()) return;
 //   OneSignal.isPushNotificationsEnabled(function(isEnabled) {
-  
+
 //       if (isEnabled) {
 //           // The user is subscribed to notifications
 //           // Don't show anything
@@ -37,10 +37,10 @@ new Vue({
 
 
 
-function injectOfflineBanner(){
+function injectOfflineBanner() {
 
   let elem = document.createElement('div');
-  
+
   elem.style.cssText = `
   position: fixed;
   background-color: #6d6d6d;
@@ -63,25 +63,25 @@ function injectOfflineBanner(){
 }
 
 
-function removeOfflineBanner(){
+function removeOfflineBanner() {
 
   const offlineBanner = document.querySelector("#offline-banner");
 
-  if( offlineBanner !== null ) offlineBanner.parentNode.removeChild(offlineBanner);
+  if (offlineBanner !== null) offlineBanner.parentNode.removeChild(offlineBanner);
 
 }
 
 
 
-if( ! navigator.onLine ) injectOfflineBanner();
+if (!navigator.onLine) injectOfflineBanner();
 
-if( navigator.onLine ) removeOfflineBanner();
-
-
-addEventListener("offline", () => injectOfflineBanner() );
+if (navigator.onLine) removeOfflineBanner();
 
 
-addEventListener("online", () => removeOfflineBanner() );
+addEventListener("offline", () => injectOfflineBanner());
+
+
+addEventListener("online", () => removeOfflineBanner());
 
 
 
@@ -100,26 +100,18 @@ firebase.initializeApp(config);
 const messaging = firebase.messaging();
 
 
-const requestNotifications = () => {
+const requestNotifications = async () => {
 
-  messaging.requestPermission()
-    .then( () => {
+  await messaging.requestPermission();
+  await messaging.getToken();
 
-      console.log('Have permision') 
+  console.log('Have permision')
 
-      return messaging.getToken();
-
-    })
-    .then( token => console.log(token) )
-    .catch( err => console.log('Error ', err) );
-
+  console.log(token);
 };
 
-messaging.onMessage( (payload) => {
+messaging.onMessage((payload) => {
 
   console.log('OnMessage', payload);
 
 })
-
-
-

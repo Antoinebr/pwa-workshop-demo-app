@@ -6,10 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "php -S localhost:8000 -t dist/",
-    "build": "workbox generateSW",
+    "build": "npx workbox injectManifest workbox-config.js",
     "dploy": "bash dploy.sh"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "workbox-cli": "^4.3.0"
+  }
 }

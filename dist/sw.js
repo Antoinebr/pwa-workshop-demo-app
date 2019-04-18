@@ -1,27 +1,16 @@
-/**
- * Welcome to your Workbox-powered service worker!
- *
- * You'll need to register this file in your web app and you should
- * disable HTTP caching for this file too.
- * See https://goo.gl/nhQhGp
- *
- * The rest of the code is auto-generated. Please don't update this file
- * directly; instead, make changes to your Workbox build configuration
- * and re-run your build process.
- * See https://goo.gl/2aRDsh
- */
-
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.0.1/workbox-sw.js");
 
 workbox.skipWaiting();
 workbox.clientsClaim();
+
+workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug);
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
  * requests for URLs in the manifest.
  * See https://goo.gl/S9QRab
  */
-self.__precacheManifest = [
+workbox.precaching.precacheAndRoute([
   {
     "url": "img/icons/icon-128x128.png",
     "revision": "5f3bfc494b7d8354305c6fa20948b07c"
@@ -52,19 +41,23 @@ self.__precacheManifest = [
   },
   {
     "url": "app.css",
-    "revision": "1965c271d27bf1a8535cbb57de56d0e1"
+    "revision": "ffaf9b8e9eb67acf1de3521e1699f3ff"
   },
   {
     "url": "app.js",
-    "revision": "3e9205eb2664635eeb31bc7efbb19ef1"
+    "revision": "c648575dbda0af96386e0b22d4292d06"
   },
   {
     "url": "components/base.js",
-    "revision": "ccd97b47fa2b507ab1141854eedcb40b"
+    "revision": "2ad365e7c84e69ffc9a40e43e693f014"
   },
   {
     "url": "components/coin.js",
     "revision": "b0e2fae5c7fc08dcf7541309e6866ad9"
+  },
+  {
+    "url": "firebase-messaging-sw.js",
+    "revision": "120c360e6455407ff7738e1e866ab014"
   },
   {
     "url": "OneSignalSDKUpdaterWorker.js",
@@ -76,11 +69,21 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "b8f3c3e1aa9266420d4cf7dbdf1a0333"
+    "revision": "2425af017ff31a0c8641b7967de25d2f"
   }
-].concat(self.__precacheManifest || []);
-workbox.precaching.suppressWarnings();
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+]);
 
-workbox.routing.registerRoute(/(https:\/\/fonts.googleapis.com|https:\/\/unpkg.com)/, workbox.strategies.staleWhileRevalidate(), 'GET');
-workbox.routing.registerRoute(/https:\/\/api.cryptonator.com\/api\//, workbox.strategies.networkFirst(), 'GET');
+
+workbox.precaching.suppressWarnings();
+
+workbox.routing.registerRoute(
+    /(https:\/\/fonts.googleapis.com|https:\/\/unpkg.com)/,
+    workbox.strategies.staleWhileRevalidate(),
+    'GET'
+);
+
+workbox.routing.registerRoute(
+    /https:\/\/api.cryptonator.com\/api\//,
+    workbox.strategies.networkFirst(),
+    'GET'
+);
